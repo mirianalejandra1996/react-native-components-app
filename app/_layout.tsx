@@ -40,7 +40,15 @@ export default function RootLayout() {
         >
           <Stack.Screen name="index" options={{ title: "" }} />
           {allRoutes.map(({ title, name }) => (
-            <Stack.Screen key={name} name={name} options={{ title: title }} />
+            <Stack.Screen
+              key={name}
+              name={name}
+              options={{
+                title: title,
+                // headerShown: false
+                headerShown: !title.includes("Slides"),
+              }}
+            />
           ))}
         </Stack>
       </ThemeProvider>
